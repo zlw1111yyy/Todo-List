@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" conxtent="width=device-width, initial-scale=1.0" />
+    <title>TodoList</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <!-- Part 1-->
+    <div class="app-container" id="tasklist">
+      <h1 class="app-header">vue to do list</h1>
+      <div class="add-task">
+        <input
+          type="text"
+          autocomplete="off"
+          placeholder="添加新项目"
+          class="task-input"
+          v-model="task"
+          @keyup.enter="newItem"
+        />
+        <button class="sumbit-task" title="添加待做项目" @click="newItem">
+          添加
+        </button>
+      </div>
+      <!-- Part 2 -->
+      <ul class="task-list">
+        <li class="task-list-item" v-for="(task,index) in tasks" :key="index">
+          <label class="task-list-item-label">
+            <input type="checkbox" />
+            <span>{{task.name}}</span>
+          </label>
+          <span class="btn">
+            <button class="delete-btn" @click="editItem(index)">编辑</button>
+            <button class="delete-btn" @click="delItem(index)">删除</button>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </body>
+  <!-- Part 3 -->
+  <script src="./vue.js"></script>
+  <script src="./main.js"></script>
+</html>
